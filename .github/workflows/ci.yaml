@@ -28,8 +28,6 @@ jobs:
 
     - name: Upload to OSS
       env:
-        OSS_REGION: <your-oss-region>  # 比如 oss-cn-hangzhou
-        OSS_BUCKET: <your-bucket-name>
         OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
         OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
       run: |
@@ -39,6 +37,7 @@ jobs:
         echo "Hello, World!"
         echo "${{ secrets.OSS_ACCESS_KEY_ID }}"
         echo "$OSS_ACCESS_KEY_ID"
+         echo $OSS_ACCESS_KEY_ID
         touch .ossutilconfig
         echo "[Credentials]" > .ossutilconfig
         echo "language=CH" >> .ossutilconfig
