@@ -27,7 +27,6 @@ jobs:
     #   run: lerna run build
 
     - name: Upload to OSS
-     
       run: |
          curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
     - name: oss config
