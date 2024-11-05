@@ -43,7 +43,7 @@ jobs:
         echo "accessKeySecret=$OSS_ACCESS_KEY_ID" >> ossutilconfig
         echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> ossutilconfig
     - name: upload oss
-      run: cat /home/user/.ossutilconfig
+      run: cat .ossutilconfig
     #   run:  ossutil
       # run: |
       #   npm install -g aliyun-cli
