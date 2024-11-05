@@ -32,10 +32,11 @@ jobs:
       #   OSS_BUCKET: <your-bucket-name>
       #   OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
       #   OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      run: curl -SLO "https://aliyuncli.alicdn.com/aliyun-cli-linux-latest-amd64.tgz"
-      run: tar -xvzf aliyun-cli-linux-latest-amd64.tgz
-      run: mv aliyun /usr/local/bin/
-      run: aliyun version
+      run: |
+        curl -SLO "https://aliyuncli.alicdn.com/aliyun-cli-linux-latest-amd64.tgz"
+        tar -xvzf aliyun-cli-linux-latest-amd64.tgz
+        mv aliyun /usr/local/bin/
+        aliyun version
       # run: |
       #   npm install -g aliyun-cli
       #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGION
