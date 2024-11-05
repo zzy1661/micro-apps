@@ -33,10 +33,19 @@ jobs:
       #   OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
       #   OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
       run: |
-        curl -SLO "https://aliyuncli.alicdn.com/aliyun-cli-linux-latest-amd64.tgz"
-        tar -xvzf aliyun-cli-linux-latest-amd64.tgz
-        mv aliyun /usr/local/bin/
-        aliyun version
+         curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+    - name: oss config
+      run: |
+        cat <<EOL > /home/user/.ossutilconfig \
+        [Credentials] \
+        language=CH \
+        accessKeyID=$OSS_ACCESS_KEY_ID \
+        accessKeySecret=$OSS_ACCESS_KEY_SECRET \
+        endpoint=https://oss-cn-hangzhou.aliyuncs.com \
+        EOL
+        cat /home/user/.ossutilconfig
+    - name: upload oss
+      run:  ossutil
       # run: |
       #   npm install -g aliyun-cli
       #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGION
