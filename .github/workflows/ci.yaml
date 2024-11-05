@@ -13,10 +13,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18.19.1' 
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: '18.19.1' 
 
     # - name: Install dependencies
     #   run: npm install
@@ -36,6 +36,9 @@ jobs:
          curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
     - name: oss config
       run: |
+        echo "Hello, World!"
+        echo "${{ secrets.OSS_ACCESS_KEY_ID }}"
+        echo "$OSS_ACCESS_KEY_ID"
         touch .ossutilconfig
         echo "[Credentials]" > .ossutilconfig
         echo "language=CH" >> .ossutilconfig
