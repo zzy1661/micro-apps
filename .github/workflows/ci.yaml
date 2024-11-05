@@ -37,11 +37,11 @@ jobs:
     - name: oss config
       run: |
         touch .ossutilconfig
-        echo "[Credentials]" > ossutilconfig
-        echo "language=CH" >> ossutilconfig
-        echo "accessKeyID=$OSS_ACCESS_KEY_ID" >> ossutilconfig
-        echo "accessKeySecret=$OSS_ACCESS_KEY_ID" >> ossutilconfig
-        echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> ossutilconfig
+        echo "[Credentials]" > .ossutilconfig
+        echo "language=CH" >> .ossutilconfig
+        echo "accessKeyID=$OSS_ACCESS_KEY_ID" >> .ossutilconfig
+        echo "accessKeySecret=$OSS_ACCESS_KEY_ID" >> .ossutilconfig
+        echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> .ossutilconfig
     - name: upload oss
       run: cat .ossutilconfig
     #   run:  ossutil
