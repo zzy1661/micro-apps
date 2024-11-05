@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: ls
-      run: ls -l
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -38,7 +36,8 @@ jobs:
          curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
     - name: oss config
       run: |
-        ls -a 
+        cd /home/user
+        ls -l
         # cat <<EOL > /home/user/.ossutilconfig \
         # [Credentials] \
         # language=CH \
