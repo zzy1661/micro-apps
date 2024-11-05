@@ -37,7 +37,7 @@ jobs:
         echo "Hello, World!"
         echo "${{ secrets.OSS_ACCESS_KEY_ID }}"
         echo "$OSS_ACCESS_KEY_ID"
-         echo $OSS_ACCESS_KEY_ID
+        echo $OSS_ACCESS_KEY_ID
         touch .ossutilconfig
         echo "[Credentials]" > .ossutilconfig
         echo "language=CH" >> .ossutilconfig
