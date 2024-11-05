@@ -36,18 +36,15 @@ jobs:
          curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
     - name: oss config
       run: |
-        cd /home/user
-        ls -l
-        # cat <<EOL > /home/user/.ossutilconfig \
-        # [Credentials] \
-        # language=CH \
-        # accessKeyID=$OSS_ACCESS_KEY_ID \
-        # accessKeySecret=$OSS_ACCESS_KEY_SECRET \
-        # endpoint=https://oss-cn-hangzhou.aliyuncs.com \
-        # EOL
-    #     cat /home/user/.ossutilconfig
-    # - name: upload oss
+        touch .ossutilconfig
+        echo "[Credentials]" > ossutilconfig
+        echo "language=CH" >> ossutilconfig
+        echo "accessKeyID=$OSS_ACCESS_KEY_ID" >> ossutilconfig
+        echo "accessKeySecret=$OSS_ACCESS_KEY_ID" >> ossutilconfig
+        echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> ossutilconfig
+    - name: upload oss
+      run: cat /home/user/.ossutilconfig
     #   run:  ossutil
       # run: |
       #   npm install -g aliyun-cli
-      #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGION
+      #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGIONGIT
