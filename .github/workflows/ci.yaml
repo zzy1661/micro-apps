@@ -47,7 +47,7 @@ jobs:
             directories=(./packages/*)
 
             # 输出数组内容
-            echo "Directories in ./packages:"
+            echo "Directories in ./packages: ${directories}"
             for dir in "${directories[@]}"; do
                 # 只输出目录，不输出文件
                 if [ -d "$dir" ]; then
