@@ -42,12 +42,14 @@ jobs:
     - name: upload oss
       run:  |
         ls
-        if [ -d ./packages ]; then
+        cd packages
+        ls
+        if [ -d ./ ]; then
             # 读取目录并将其存储在数组中
-            directories=(./packages/*)
+            directories=(./)
 
             # 输出数组内容
-            echo "Directories in ./packages: ${directories}"
+            echo "Directories in ./: ${directories}"
             for dir in "${directories[@]}"; do
                 # 只输出目录，不输出文件
                 if [ -d "$dir" ]; then
