@@ -47,7 +47,6 @@ jobs:
             echo "Uploading files from $app/dist to OSS..."
           fi
         done
-        # ossutil cp -r localfolder/ oss://examplebucket/desfolder/ -c /home/config
       # run: |
       #   npm install -g aliyun-cli
       #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGIONGIT
