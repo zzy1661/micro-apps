@@ -46,7 +46,7 @@ jobs:
             echo "Uploading files from $app/dist to OSS..."
             app_name=$(basename "$app")
             echo $app_name
-            ossutil cp -r ./packages/$app_name/dist oss://bressanone-bucket2/micros/$app_name -c ./.ossutilconfig
+            ossutil cp -r ./packages/$app_name/dist oss://bressanone-bucket2/micros/$app_name -f -c ./.ossutilconfig
           else
             echo "error: $app/dist does not exist."
           fi
