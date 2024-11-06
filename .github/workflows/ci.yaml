@@ -41,7 +41,6 @@ jobs:
     #     echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> .ossutilconfig
     - name: upload oss
       run:  |
-     
         for app in ./packages/*; do
           if [ -d "$app/dist" ]; then
             echo "Uploading files from $app/dist to OSS..."
@@ -58,11 +57,3 @@ jobs:
 
 
 
-for app in ./packages/; do
-  if [ -d "$app/dist2" ]; then
-    echo "Uploading files from $app/dist to OSS..."
-    ossutil cp -r ./packages/$app/dist oss://bressanone-bucket2/micros/$app
-  else 
-    echo "$app/dist not exist"
-  fi
-done
