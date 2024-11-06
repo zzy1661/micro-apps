@@ -41,8 +41,14 @@ jobs:
         echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> .ossutilconfig
     - name: upload oss
       run:  |
-        ls -l
+        for app in packages/*; do
+          if [ -d "$app/dist" ]; then
+            echo "Uploading files from $app/dist to OSS..."
+          fi
+        done
         # ossutil cp -r localfolder/ oss://examplebucket/desfolder/ -c /home/config
       # run: |
       #   npm install -g aliyun-cli
       #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGIONGIT
+
+      # ossutil cp -r ./packages/micro-app2/dist oss://bressanone-bucket2/micros/
