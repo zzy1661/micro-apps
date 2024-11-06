@@ -1,1 +1,9 @@
 node_modules
+.env.local
+.umirc.local.ts
+config/config.local.ts
+packages/*/src/.umi
+packages/*/src/.umi-production
+packages/*/src/.umi-test
+packages/*/dist
+.swc

@@ -41,23 +41,13 @@ jobs:
     #     echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> .ossutilconfig
     - name: upload oss
       run:  |
-        cd ./packages
-        ls
-        if [ -d ./ ]; then
-            # 读取目录并将其存储在数组中
-            directories=(./)
-
-            # 输出数组内容
-            echo "Directories in ./: ${directories}"
-            for dir in "${directories[@]}"; do
-                # 只输出目录，不输出文件
-                if [ -d "$dir" ]; then
-                    echo "$(basename "$dir")"
-                fi
-            done
-        else
-            echo "Error: $packages_dir does not exist."
-        fi
+       for app in packages/*; do
+          if [ -d "$app/src" ]; then
+            echo "Uploading files from $app/dist to OSS..."
+          else
+            echo "error: $app/dist does not exist."
+          fi
+        done
       # run: |
       #   npm install -g aliyun-cli
       #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGIONGIT
