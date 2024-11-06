@@ -34,10 +34,10 @@ jobs:
         OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
         OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
       run: |
-        echo "Hello, World!"
         echo "${{ secrets.OSS_ACCESS_KEY_ID }}"
         echo "$OSS_ACCESS_KEY_ID"
         echo $OSS_ACCESS_KEY_ID
+        echo ${{ github.repository }}
         touch .ossutilconfig
         echo "[Credentials]" > .ossutilconfig
         echo "language=CH" >> .ossutilconfig
