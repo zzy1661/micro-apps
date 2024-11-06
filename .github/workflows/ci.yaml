@@ -42,7 +42,7 @@ jobs:
     - name: upload oss
       run:  |
         for app in packages/*; do
-          if [ -d "$app/sr" ]; then
+          if [ -d "$app/src" ]; then
             echo "Uploading files from $app/dist to OSS..."
           fi
         done
