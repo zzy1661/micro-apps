@@ -41,6 +41,7 @@ jobs:
     #     echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> .ossutilconfig
     - name: upload oss
       run:  |
+        ls -l
         for app in packages/*; do
           if [ -d "$app/src" ]; then
             echo "Uploading files from $app/dist to OSS..."
