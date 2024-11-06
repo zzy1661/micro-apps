@@ -1,7 +1,7 @@
 import { defineConfig } from "umi";
 
 export default defineConfig({
-  publicPath:'./',
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   plugins: ['@umijs/plugins/dist/qiankun'],
   qiankun: {
     slave: {},
