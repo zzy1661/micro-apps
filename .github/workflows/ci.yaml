@@ -41,6 +41,7 @@ jobs:
     #     echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> .ossutilconfig
     - name: upload oss
       run:  |
+        ls
         if [ -d ./packages ]; then
             # 读取目录并将其存储在数组中
             directories=(./packages/*)
