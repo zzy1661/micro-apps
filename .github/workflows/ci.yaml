@@ -13,31 +13,25 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # - name: Set up Node.js
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: '18.19.1' 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.19.1' 
 
-    # - name: Install dependencies
-    #   run: npm install
-    # - name: install global package
-    #   run: npm install yarn lerna -g
+    - name: Install dependencies
+      run: npm install
+    - name: install global package
+      run: npm install yarn lerna -g
 
-    # - name: Build project
-    #   run: lerna run build
+    - name: Build project
+      run: lerna run build
 
     - name: Upload to OSS
       run: |
          curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
     - name: oss config
-      env:
-        OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
-        OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
       run: |
         echo "${{ secrets.OSS_ACCESS_KEY_ID }}"
-        echo "$OSS_ACCESS_KEY_ID"
-        echo $OSS_ACCESS_KEY_ID
-        echo ${{ github.repository }}
         echo ${{ secrets.OSS_ACCESS_KEY_SECRET }}
         touch .ossutilconfig
         echo "[Credentials]" > .ossutilconfig
@@ -46,8 +40,9 @@ jobs:
         echo "accessKeySecret=${{ secrets.OSS_ACCESS_KEY_SECRET }}" >> .ossutilconfig
         echo "endpoint=https://oss-cn-hangzhou.aliyuncs.com" >> .ossutilconfig
     - name: upload oss
-      run: cat .ossutilconfig
-    #   run:  ossutil
+      run:  |
+        ls -l
+        # ossutil cp -r localfolder/ oss://examplebucket/desfolder/ -c /home/config
       # run: |
       #   npm install -g aliyun-cli
       #   aliyun oss cp -r ./build oss://$OSS_BUCKET/ --region $OSS_REGIONGIT
